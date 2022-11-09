@@ -36,3 +36,37 @@ exports.prada_list = async function(req, res) {
     }   
 }; 
  
+
+// VIEWS 
+// Handle a show all view 
+exports.prada_view_all_Page = async function(req, res) { 
+    try{ 
+        thePrada = await Prada.find(); 
+        res.render('prada', { title: 'Prada Search Results', results: thePrada }); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+}; 
+
+// Handle Costume create on POST. 
+exports.prada_create_post = async function(req, res) { 
+    console.log(req.body) 
+    let document = new Prada(); 
+    // We are looking for a body, since POST does not have query parameters. 
+    // Even though bodies can be in many different formats, we will be picky 
+    // and require that it be a json object 
+    // {"costume_type":"goat", "cost":12, "size":"large"} 
+    document.color = req.body.color; 
+    document.cost = req.body.cost; 
+    document.brand = req.body.brand; 
+    try{ 
+        let result = await document.save(); 
+        res.send(result); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+}; 

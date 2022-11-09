@@ -1,7 +1,8 @@
 extends layout
 block content
   h1= title
-  - let results=[{color:"black", cost: 600000, brand : "prada"},{color:"white", cost: 650000, brand : "prada"},{color:"peach", cost: 680000, brand : "prada"}]
+  //- let results=[{color:"black", cost: 600000, brand : "prada"},{color:"white", cost: 650000, brand : "prada"},{color:"peach", cost: 680000, brand : "prada"}]
+  let items = results 
   div(class="container-fluid")
   div(class="row")
   each value,index in results
