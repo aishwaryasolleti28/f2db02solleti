@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+.pradaAttr { 
+  background-color: aquamarine; 
+  width: 120px; 
+} 
+
+.pradaStyle { 
+  background-color: rgb(255, 127, 129); 
+  width: 120px;
+  text-shadow: 2px,2px,2px; 
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+} 

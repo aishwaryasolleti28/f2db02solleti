@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let pradaid = toShow._id 
+  - let pradacolor = toShow.color
+  - let pradacost = toShow.cost 
+  - let pradabrand = toShow.brand
+  div 
+    div.row 
+      div(class='pradaStyle mr-3') Prada ID is: 
+      div #{pradaid} 
+    div.row 
+      div(class='pradaStyle mr-3') Prada color is: 
+      div #{pradacolor} 
+    div.row 
+      div(class='pradaStyle mr-3') Prada cost is: 
+      div #{pradacost} 
+    div.row 
+      div(class='pradaStyle mr-3') Prada brand is: 
+      div #{pradabrand} 
