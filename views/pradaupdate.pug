@@ -8,8 +8,8 @@ block content
  
    - let pradaid = toShow._id 
    - let prada_type = toShow.color 
-   - let pradacost = toShow.cost 
-   - let pradasize = toShow.brand 
+   - let cost = toShow.cost 
+   - let brand = toShow.brand 
    
    div.row(class='mb-2') 
     div.mr-1 ID is 
@@ -21,10 +21,10 @@ block content
         input#prada_type(type='text', name='color', value= prada_type ) 
      div.form-group 
         label.pradaAttr(for='cost') Prada cost 
-        input#size(type='number', name='cost', value= pradacost ) 
+        input#size(type='number', name='cost', value= cost ) 
      div.form-group 
         label.pradaAttr(for='brand') Prada brand 
-        input#cost(type='text', name='brand', value= pradasize ) 
+        input#cost(type='text', name='brand', value= brand ) 
      input(type="submit")
  
   script. 

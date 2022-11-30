@@ -10,6 +10,16 @@ var express = require('express');
 const prada_controlers= require('../controllers/prada'); 
 var router = express.Router(); 
  
+// A little function to check if we have an authorized user and continue on or 
+// redirect to login. 
+const secured = (req, res, next) => { 
+    if (req.user){ 
+      return next(); 
+    } 
+    req.session.returnTo = req.originalUrl; 
+    res.redirect("/login"); 
+  } 
+
 /* GET pradas */ 
 router.get('/', prada_controlers.prada_view_all_Page ); 
 module.exports = router; 
@@ -18,10 +28,11 @@ module.exports = router;
 router.get('/detail', prada_controlers.prada_view_one_Page);
 
  /* GET create prada page */ 
-router.get('/create', prada_controlers.prada_create_Page); 
+router.get('/create', secured, prada_controlers.prada_create_Page); 
  
-/* GET create update page */ 
-router.get('/update', prada_controlers.prada_update_Page); 
+/* GET update costume page */ 
+router.get('/update', secured, prada_controlers.prada_update_Page); 
+ 
 
 /* GET delete prada page */ 
-router.get('/delete', prada_controlers.prada_delete_Page);
+router.get('/delete', secured, prada_controlers.prada_delete_Page);

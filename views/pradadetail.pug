@@ -2,12 +2,15 @@ extends layout
  
 block content 
   h1= title 
+  if(toShow==null)
+    h2 No instance to Detail 
+  else
  
-  - let pradaid = toShow._id 
-  - let pradacolor = toShow.color
-  - let pradacost = toShow.cost 
-  - let pradabrand = toShow.brand
-  div 
+   - let pradaid = toShow._id 
+   - let pradacolor = toShow.color
+   - let pradacost = toShow.cost 
+   - let pradabrand = toShow.brand
+   div 
     div.row 
       div(class='pradaStyle mr-3') Prada ID is: 
       div #{pradaid} 

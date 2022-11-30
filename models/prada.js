@@ -1,7 +1,10 @@
 const mongoose = require("mongoose") 
 const pradaSchema = mongoose.Schema({ 
  color: String, 
- cost: Number, 
+ cost:{
+    type:Number,
+    min: 500000,
+    max: 900000 }, 
  brand: String 
 }) 
  

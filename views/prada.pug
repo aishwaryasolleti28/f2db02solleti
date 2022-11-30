@@ -2,7 +2,25 @@ extends layout
 block content
   h1= title
   //- let results=[{color:"black", cost: 600000, brand : "prada"},{color:"white", cost: 650000, brand : "prada"},{color:"peach", cost: 680000, brand : "prada"}]
-  let items = results 
+  - let Create = `dispatch(\"/prada/create\")`
+  button.btn( class="btn-dark ml-1", onclick= Create) Create
+  - let items = results 
+  div(class="container-fluid") 
+    div(class="row m-1") 
+      each item in items  
+        - let destination = `dispatch(\"/prada/update?id=${item._id}\")` 
+        - let detail = `dispatch(\"/prada/detail?id=${item._id}\")`
+        - let Delete = `dispatch(\"/prada/delete?id=${item._id}\")`  
+        div(class="row-sm-2", class="m-1") Item #{item.color}(#{item.cost}) is #{item.brand} 
+          button.btn( class="btn-success ml-1", onclick= destination) Update
+          button.btn( class="btn-primary ml-1", onclick= detail) Details
+          button.btn( class="btn-info ml-1", onclick= Delete) Delete
+   
+    script. 
+     function dispatch(path){ 
+       window.location.href=path 
+     } 
+ 
   div(class="container-fluid")
   div(class="row")
   each value,index in results
